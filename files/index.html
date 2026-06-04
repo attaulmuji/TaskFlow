@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>TaskFlow – To-Do App</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone">
+  <div class="blob1"></div><div class="blob2"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">
+      <div class="app-title">Task<span>Flow</span></div>
+      <div class="clock-badge" id="live-clock">--:--:--</div>
+    </div>
+    <div class="stats-row">
+      <div class="stat" id="stat-total"><div class="stat-num" id="num-total">0</div><div class="stat-label">Total</div></div>
+      <div class="stat" id="stat-done"><div class="stat-num" id="num-done">0</div><div class="stat-label">Done</div></div>
+      <div class="stat" id="stat-left"><div class="stat-num" id="num-left">0</div><div class="stat-label">Pending</div></div>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-wrap">
+    <div class="progress-label"><span>Today's Progress</span><span id="pct">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <!-- Status Filters -->
+  <div class="filter-tabs">
+    <button class="tab active" onclick="setFilter('all',this)">All</button>
+    <button class="tab" onclick="setFilter('active',this)">Pending</button>
+    <button class="tab" onclick="setFilter('done',this)">Done</button>
+    <button class="tab" onclick="setFilter('overdue',this)">⚠️ Overdue</button>
+    <button class="tab" onclick="setFilter('today',this)">📅 Today</button>
+  </div>
+
+  <!-- Day Filter Chips -->
+  <div class="day-filter" id="day-filter"></div>
+
+  <!-- Task List -->
+  <div class="task-list" id="task-list"></div>
+  <div class="empty-state" id="empty-state">
+    <div class="emoji">✨</div>
+    <p>No tasks here!<br>Add a new task below.</p>
+  </div>
+
+  <!-- Add Task Area -->
+  <div class="add-area">
+    <div class="input-row">
+      <input class="task-input" id="task-input" type="text" placeholder="Add a new task..." maxlength="80">
+      <button class="add-btn" onclick="addTask()">+</button>
+    </div>
+    <div class="datetime-row">
+      <div class="dt-group">
+        <div class="dt-label">📅 Date</div>
+        <input class="dt-input" type="date" id="task-date">
+      </div>
+      <div class="dt-group">
+        <div class="dt-label">⏰ Time</div>
+        <input class="dt-input" type="time" id="task-time">
+      </div>
+    </div>
+    <div class="priority-row">
+      <input type="radio" name="priority" id="p-high" value="high">
+      <label for="p-high" class="p-high">🔴 High</label>
+      <input type="radio" name="priority" id="p-med" value="med" checked>
+      <label for="p-med" class="p-med">🟠 Medium</label>
+      <input type="radio" name="priority" id="p-low" value="low">
+      <label for="p-low" class="p-low">🟢 Low</label>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
